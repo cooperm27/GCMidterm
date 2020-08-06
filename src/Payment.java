@@ -2,13 +2,13 @@
 
 public abstract class Payment {
 	
-	private double payment;
+	private double amount;
 	
-	public Payment(double payment) {
-		this.payment = payment;
+	public Payment(double amount) {
+		this.amount = amount;
 	}
-	public abstract double Payment();
-	im not sure this is correct
+	public abstract String Payment(double amount);
+
 
 }
 
