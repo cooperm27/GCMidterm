@@ -1,0 +1,13 @@
+Crab Cakes~~~Appetizer~~~Lightly fried crab~~~4.50
+French Fries~~~Appetizer~~~Fried potatoes~~~2.75
+Garden Salad~~~Appetizer~~~Lettuce with tomatoes and dressing~~~3.25
+Salmon with Rice~~~Entree~~Grilled Salmon with yellow rice~~~18.95
+Veggie Pot Pie~~~Entree~~~Veggies baked in a pie crust~~~13.50
+Surf and Turf~~~Entree~~~Grilled steak and shrimp~~~25.50
+Lager~~~Drink~~~Beer brewed in house~~~4.00
+Wine~~~Drink~~~Red or White wine from France~~~6.00
+Sparkling Water~~~Drink~~~Carbonated water with lemon~~~2.50
+Chocolate Cake~~~Dessert~~~Slice of chocolate cake with frosting~~~3.75
+Creme Brulee~~~Dessert~~~Custard topped with hardened caramelized sugar~~~5.00
+Strawberry Jello~~~Dessert~~~Strawberry flavored Jello with cream~~~2.50
+
