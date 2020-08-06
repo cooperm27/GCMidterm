@@ -8,6 +8,7 @@ public abstract class Payment {
 		this.payment = payment;
 	}
 	public abstract double Payment();
+	im not sure this is correct
 
 }
 
