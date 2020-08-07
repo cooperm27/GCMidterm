@@ -24,7 +24,7 @@ public class CreditCardPayment extends Payment{
 		super(amount);
 		this.cardNumber = cardNumber;
 		this.expiration = expiration;
-		cVV = cVV;
+		this.cVV = cVV;
 	}
 
 
@@ -91,13 +91,14 @@ public class CreditCardPayment extends Payment{
 		}
 	      validDate=Validator.dateCheck(dateString);
 	      if(!validDate) {
-	    	  System.out.println("Please enter a valid date!");
+	    	  System.out.println("This is expired card.Please enter a valid date!");
 	    	 continue;
 	      }
 		}while(!validDate);
 	    do {
 	    cVV=Validator.getInt(scnr,"Please enter CVV number:");
-	    validCVV=Validator.getcVVSize(cVV);
+	 	  validCVV=Validator.getcVVSize(cVV);
+
 	    }while(!validCVV);
 	    
 	    String outPut=String.format("Approved\nThank you.Your card has been charged $ %.2f\n",amount) ;

@@ -12,22 +12,12 @@ public class Product {
 	}
 
 
-	public Product(String name, String category, String description, double price) {
+	public Product(String category, String name, String description, double price) {
 		super();
-		this.name = name;
 		this.category = category;
+		this.name = name;
 		this.description = description;
 		this.price = price;
-	}
-
-
-	public String getName() {
-		return name;
-	}
-
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 
@@ -39,6 +29,15 @@ public class Product {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 
 
 	public String getDescription() {
@@ -63,7 +62,7 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product [name=" + name + ", category=" + category + ", description=" + description + ", price=" + price
+		return "Product [category=" + category + ", Name=" + name + ", description=" + description + ", price=" + price
 				+ "]";
 	}
 	

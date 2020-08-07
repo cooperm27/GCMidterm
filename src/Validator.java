@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Validator {
-	
 	public static String getString(Scanner scnr, String prompt) {
 		System.out.print(prompt);
 		return scnr.nextLine();
@@ -26,19 +25,20 @@ public class Validator {
 	}
 
 	public static int getInt(Scanner scnr, String prompt) {
-		System.out.print(prompt);
+		System.out.println(prompt);
 		// loop while the input would be bad.
 		while (!scnr.hasNextInt()) {
-			scnr.nextLine(); // <-- clear out the bad input that they already
-								// typed
-			System.out
-					.println("That is not a valid number. Please try again.");
+			scnr.nextLine(); // <-- clear out the bad input that they already typed
+							
+			System.out.println("That is not a valid number. Please try again.");
 			System.out.print(prompt);
+			
 		}
 		int input = scnr.nextInt();
 		scnr.nextLine(); // <-- clear entire line to ready for next input
 		return input;
 	}
+	
 
 	public static int getPositiveInt(Scanner scnr, String prompt) {
 		int input;
@@ -133,6 +133,7 @@ public class Validator {
 		   String[] change= date.split("/");
 		   month=Integer.parseInt(change[0]);
 		    year=Integer.parseInt(change[1]);
+		      
 	   }
 		   if(month>=1 && month<=12 && year>=20)
 			   return true;
