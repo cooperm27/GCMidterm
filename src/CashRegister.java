@@ -34,7 +34,7 @@ public class CashRegister {
 			quantity = Validator.getInt(scnr, "How many would you like??");
 
 			itemOrder(id, quantity);
-		//System.out.println("Adding "+order.get(currentItem).getName()+" to your cart!!");
+		System.out.println("Adding "+ quantity + " " + product.get(id - 1).getName() + " to your cart!!");
 		//currentItem+=1;
 		response = Validator.getYesNo(scnr, "Would you like to order anything else?(y/n)");
 		} while (response);
