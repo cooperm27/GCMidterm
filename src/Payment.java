@@ -4,6 +4,10 @@ public abstract class Payment {
 	
 	private double amount;
 	
+	public Payment() {
+		
+	}
+	
 	public Payment(double amount) {
 		this.amount = amount;
 	}

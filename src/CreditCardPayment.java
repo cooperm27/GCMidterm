@@ -1,27 +1,32 @@
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 public class CreditCardPayment extends Payment{
 	
 	Scanner scnr=new Scanner(System.in);
 	
 	private long cardNumber;
-	private  String expiration;
+	private  Date expiration;
 	private int cVV;
 	
 	public CreditCardPayment(double amount) {
-		super(amount);
+			   super(amount);
 
 	}
 	
 
 	
 
-	public CreditCardPayment(double amount, long cardNumber, String expiration, int cVV) {
+	public CreditCardPayment(double amount, long cardNumber, Date expiration, int cVV) {
 		super(amount);
 		this.cardNumber = cardNumber;
 		this.expiration = expiration;
 		cVV = cVV;
 	}
+
 
 
 
@@ -34,11 +39,11 @@ public class CreditCardPayment extends Payment{
 		this.cardNumber = cardNumber;
 	}
 
-	public String getExpiration() {
+	public Date getExpiration() {
 		return expiration;
 	}
 
-	public void setExpiration(String expiration) {
+	public void setExpiration(Date expiration) {
 		this.expiration = expiration;
 	}
 
@@ -62,12 +67,41 @@ public class CreditCardPayment extends Payment{
 
 	@Override
 	public String Payment(double amount) {
-	    System.out.println("Please enter the Credit Card number: ");
-	    cardNumber=scnr.nextLong();
-	    System.out.println("Please enter the Expiration date: ");
-	    expiration=scnr.nextLine();
-	    System.out.println("Please enter CVV number:");
-	    cVV=scnr.nextInt();
-	    return "Payment done";
+		boolean validNum=true;
+		boolean validCVV=true;
+		boolean validDate=true;
+		do {
+	    cardNumber=Validator.getLong(scnr, "Please enter the Credit Card number: ");
+	    validNum=Validator.getCardSize(cardNumber);
+		}while(!validNum);
+		do {
+		System.out.println("Please enter the Expiration date(mm/yy): ");
+
+	    String dateString = scnr.next();
+	    DateFormat formatter = new SimpleDateFormat("MM/yy");
+	      
+	    try {
+			expiration = formatter.parse(dateString);
+			validDate=true;
+		} catch (ParseException e) {
+
+		   System.out.println("Please enter a valid expiration date!");  
+		   validDate=false;
+		   continue;
+		}
+	      validDate=Validator.dateCheck(dateString);
+	      if(!validDate) {
+	    	  System.out.println("Please enter a valid date!");
+	    	 continue;
+	      }
+		}while(!validDate);
+	    do {
+	    cVV=Validator.getInt(scnr,"Please enter CVV number:");
+	    validCVV=Validator.getcVVSize(cVV);
+	    }while(!validCVV);
+	    
+	    String outPut=String.format("Approved\nThank you.Your card has been charged $ %.2f\n",amount) ;
+	    return outPut;
 	}
+	
 }
