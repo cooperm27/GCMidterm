@@ -140,4 +140,17 @@ public class Validator {
 			   return false;
 	   
 	}
+	public static String getNewCategory (Scanner scnr, String prompt){
+		String response;
+		boolean isValid;
+		System.out.println(prompt);
+		do {
+			response = scnr.nextLine();
+			isValid = response.equalsIgnoreCase("Appetizer") || response.equalsIgnoreCase("Entree") || response.equalsIgnoreCase("Dessert")|| response.equalsIgnoreCase("Drink");;
+			if (!isValid) {
+				System.out.println("Please try again and only choose Appetizer, Entree, Drink or Dessert.");
+			}
+			}while (!isValid);
+			return response;
+}
 }

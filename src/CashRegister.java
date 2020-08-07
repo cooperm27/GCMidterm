@@ -27,16 +27,23 @@ public class CashRegister {
 		boolean response = true;
 		boolean cashPay=false;
 		CashPayment cash=new CashPayment();
+		int addProduct = 0;
 
 		System.out.println("Welcome to Our Grand Circus Restuarant:");
 		System.out.println("Menu:");
 
 		do {
 			listProduct();
-			
+			addProduct = product.size()+1;
+			System.out.println(addProduct +" Suggest a product");
 			id = Validator.getInt(scnr, "Which item would you like to order?");
-			if (id > product.size() + 1) {
+			if (id > product.size()+1) {
 				System.out.println("Please enter the valid menu item number\n");
+				continue;
+			}else if (id == product.size()+1) {
+				Product p = getInputFromUser(scnr);
+				appendLineToFile(p);
+				System.out.println("Adding suggestion to menu");
 				continue;
 			}
 
@@ -167,9 +174,8 @@ public class CashRegister {
 	 
 	  
 	  public static Product getInputFromUser(Scanner scnr) {
-			scnr.nextLine();
 			String itemName = Validator.getString(scnr, "Enter item name: ");
-			String category = Validator.getString(scnr, "Enter the category: ");
+			String category = Validator.getNewCategory(scnr, "Enter a Category");
 			String description = Validator.getString(scnr, "Enter a brief description ");
 			double price = Validator.getDouble(scnr, "Enter price: ");
 			return new Product(itemName,category,description,price);

@@ -10,3 +10,7 @@ Sparkling Water~~~Drink~~~Carbonated water with lemon~~~2.50
 Chocolate Cake~~~Dessert~~~Slice of chocolate cake with frosting~~~3.75
 Creme Brulee~~~Dessert~~~Custard topped with hardened caramelized sugar~~~5.00
 Strawberry Jello~~~Dessert~~~Strawberry flavored Jello with cream~~~2.50
+Cupcakes~~~Dessert~~~Frosted Strawberry Cupcake~~~5.5
+Hot Dog~~~Entree~~~Hot dog with ketchup~~~2.25
+Pepsi~~~Drink~~~Soda flavor pepsi~~~1.5
+Steak~~~Entree~~~Medium well done steak and spinach~~~30.0
