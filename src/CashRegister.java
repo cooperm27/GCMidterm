@@ -3,6 +3,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,7 +16,6 @@ public class CashRegister {
 	private static List<Order> order = new ArrayList<>();
 	private static int quantity = 0;
 	private static List<Order> temp = new ArrayList<>();
-	//private static int currentItem=0;
 	public static void main(String[] args) {
 		int id = -1;
 
@@ -34,8 +35,10 @@ public class CashRegister {
 			quantity = Validator.getInt(scnr, "How many would you like??");
 
 			itemOrder(id, quantity);
+
 		System.out.println("Adding "+ quantity + " " + product.get(id - 1).getName() + " to your cart!!");
-		//currentItem+=1;
+
+
 		response = Validator.getYesNo(scnr, "Would you like to order anything else?(y/n)");
 		} while (response);
 		System.out.println("Your order is: ");
@@ -45,13 +48,13 @@ public class CashRegister {
 		delDup(order);
 		for (Order o : temp)
 			System.out.println(o);
+		System.out.println("Your total is "+total(temp));
 
 	}
 
 	public static List<Product> readFile() {
 		try {
 			List<String> lines = Files.readAllLines(filePath);
-			// Collections.sort(lines, String.CASE_INSENSITIVE_ORDER);
 			List<Product> products = new ArrayList<>();
 
 			for (String line : lines) {
@@ -72,11 +75,10 @@ public class CashRegister {
 	public static void listProduct() {
 		product = readFile();
 		int index = 1;
-		System.out.printf("%-30s%-15s%-40s%-25s\n", "     Item Name", "Category", "Description", "Price");
-		System.out.printf("%-30s%-15s%-40s%-25s\n", "     =============", "==========", "==========", "=======");
+		System.out.printf("%-30s%-15s%-50s%-25s\n", "     Item Name", "Category", "Description", "Price");
+		System.out.printf("%-30s%-15s%-50s%-25s\n", "     =============", "==========", "==========", "=======");
 		for (Product list : product) {
-			// System.out.println(i++ + ". " + list);
-			System.out.printf("%-5s%-25s%-15s%-40s%-2s%-25.2f\n", index, list.getName(), list.getCategory(),
+			System.out.printf("%-5s%-25s%-15s%-50s%-2s%-25.2f\n", index, list.getName(), list.getCategory(),
 					list.getDescription(), "$ ", list.getPrice());
 			index++;
 		}
@@ -86,12 +88,13 @@ public class CashRegister {
 	public static List<Order> itemOrder(int orderNumber, int quantity) {
 
 		// Collections.sort(lines, String.CASE_INSENSITIVE_ORDER);
-		// Set<Order> order1 = new LinkedHashSet<>();
+		
 		for (int i = 0; i < quantity; i++) {
 			String orderName = product.get(orderNumber - 1).getName();
 			double orderPrice = product.get(orderNumber - 1).getPrice();
 			orderPrice = orderPrice * quantity;
 			order.add(new Order(orderName, quantity, orderPrice));
+	
 
 		}
 		return order;
@@ -109,11 +112,13 @@ public class CashRegister {
 		return temp;
 	}
 
-	/*
-	 * private static double total(List<Payment> orderPrice) { double total=0;
-	 * for(Payment d:orderPrice) { total+=d.getAmount(); }
-	 * 
-	 * return total; }
-	 */
+	
+	  private static double total(List<Order> order) { 
+		  double total=0;
+	  for(Order d:order) 
+		  total=total+d.getPrice();	  
+	  return total; 
+	  }
+	 
 
 }
