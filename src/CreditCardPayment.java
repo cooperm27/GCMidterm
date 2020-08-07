@@ -95,9 +95,10 @@ public class CreditCardPayment extends Payment{
 	    	 continue;
 	      }
 		}while(!validDate);
+		scnr.nextLine(); 
 	    do {
 	    cVV=Validator.getInt(scnr,"Please enter CVV number:");
-	 	  validCVV=Validator.getcVVSize(cVV);
+	 	 	validCVV=Validator.getcVVSize(cVV);
 
 	    }while(!validCVV);
 	    

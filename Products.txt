@@ -10,4 +10,3 @@ Drink~~~Sparkling Water~~~Carbonated water with lemon~~~2.50
 Dessert~~~Chocolate Cake~~~Slice of chocolate cake with frosting~~~3.75
 Dessert~~~Creme Brulee~~~Custard topped with hardened caramelized sugar~~~5.00
 Dessert~~~Strawberry Jello~~~Strawberry flavored Jello with cream~~~2.50
-Drink~~~Coke~~~Chilled Coke~~~1.99
