@@ -130,10 +130,10 @@ public class CashRegister {
 	public static void listProduct() {
 		product = readFile();
 		int index = 1;
-		System.out.printf("%-15s%-30s%-50s%-25s\n", "     Category", "Name", "Description", "Price");
-		System.out.printf("%-15s%-30s%-50s%-25s\n", "     =============", "==========", "==========", "=======");
+		System.out.printf("%-25s%-25s%-50s%-25s\n", "     Category", "Name", "Description", "Price");
+		System.out.printf("%-25s%-25s%-50s%-25s\n", "     ==========", "==========", "==============", "=======");
 		for (Product list : product) {
-			System.out.printf("%-5s%-15s%-25s%-50s%-2s%-25.2f\n", index, list.getCategory(), list.getName(),
+			System.out.printf("%-5s%-20s%-25s%-50s%-2s%-25.2f\n", index, list.getCategory(), list.getName(),
 					list.getDescription(), "$ ", list.getPrice());
 			index++;
 		}
