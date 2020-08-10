@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.Comparator;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -193,7 +194,7 @@ public class CashRegister {
 
 	// Deleting duplicates rows of order list
 	public static List<Order> delDup(List<Order> order) {
-
+		order.sort(new NameSorter());
 		int j = 0;
 		for (int i = 0; i < order.size() - 1; i++) {
 			if (!order.get(i).getName().equals(order.get(i + 1).getName())) {
