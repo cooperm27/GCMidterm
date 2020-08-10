@@ -29,14 +29,14 @@ public class CashRegister {
 			CashPayment cash = new CashPayment();
 			int addProduct = 0;
 
-			System.out.println("Welcome to Our Grand Circus Restuarant:");
-			System.out.println("Menu:");
+			System.out.println("Welcome to Our Grand Circus Restuarant!!!");
+			System.out.println("\nMenu");
 
 			do {
 				listProduct();
 				addProduct = product.size() + 1;
 				System.out.println(addProduct + " Suggest a product");
-				id = Validator.getInt(scnr, "Which item would you like to order?");
+				id = Validator.getInt(scnr, "\nWhich item would you like to order?");
 				if (id > product.size() + 1) {
 					System.out.println("Please enter the valid menu item number\n");
 					continue;
@@ -53,9 +53,12 @@ public class CashRegister {
 
 				System.out.println("Adding " + quantity + " " + product.get(id - 1).getName() + " to your cart!!");
 
-				response = Validator.getYesNo(scnr, "Would you like to order anything else?(y/n)");
+				response = Validator.getYesNo(scnr, "\nWould you like to order anything else?(y/n)");
 			} while (response);
 			System.out.println("Your order is: ");
+			for(int i=0;i<70;i++)
+				System.out.print("*");
+			System.out.println();
 			System.out.printf("%-30s%-20s%-20s\n", "Item Name", "Quantity", "Price");
 			System.out.printf("%-30s%-20s%-40s\n", "=============", "==========", "=======");
 
@@ -63,11 +66,16 @@ public class CashRegister {
 			for (Order o : temp)
 				System.out.println(o);
 			System.out.println();
-			System.out.println("=================");
+	
 			System.out.printf("%-5s%-2.2f\n", "Subtotal is : $ ", subtotal(temp));
 			System.out.printf("%-5s%-2.2f\n", "Sales tax is : $ ", .06 * subtotal(temp));
 			finalTotal = 1.06 * subtotal(temp);
 			System.out.printf("%-5s%-2.2f\n", "Total is : $ ", finalTotal);
+			System.out.println();
+			for(int i=0;i<70;i++)
+				System.out.print("*");
+			System.out.println();
+
 			question = Validator.getPaymentType(scnr, "How would you like to pay? (Cash/Card/Check)");
 
 			if (question.equalsIgnoreCase("Cash")) {
@@ -81,7 +89,12 @@ public class CashRegister {
 				CheckPayment checkPayment = new CheckPayment(finalTotal);
 				System.out.println(checkPayment.Payment(finalTotal));
 			}
-			System.out.println("Here is your recipt.\n");
+		
+			System.out.println();
+			for(int i=0;i<70;i++)
+				System.out.print("*");
+			System.out.println();
+			System.out.println("Receipt: \n");
 			System.out.printf("%-30s%-20s%-20s\n", "Item Name", "Quantity", "Price");
 			System.out.printf("%-30s%-20s%-40s\n", "=============", "==========", "=======");
 			for (Order o : temp)
@@ -93,6 +106,11 @@ public class CashRegister {
 			System.out.printf("%-2s%-2.2f%-2s%-10s\n", "You are charged $ ", finalTotal, " by ", question);
 			if (cashPay)
 				System.out.printf("%-5s%-2.2f\n", "Change = $", cash.change);
+			System.out.println();
+			for(int i=0;i<70;i++)
+				System.out.print("*");
+			System.out.println();
+
 			product.clear();
 			order.clear();
 			temp.clear();
@@ -130,6 +148,9 @@ public class CashRegister {
 	public static void listProduct() {
 		product = readFile();
 		int index = 1;
+		for(int i=0;i<110;i++)
+			System.out.print("*");
+		System.out.println();
 		System.out.printf("%-25s%-25s%-50s%-25s\n", "     Category", "Name", "Description", "Price");
 		System.out.printf("%-25s%-25s%-50s%-25s\n", "     ==========", "==========", "==============", "=======");
 		for (Product list : product) {
@@ -137,6 +158,9 @@ public class CashRegister {
 					list.getDescription(), "$ ", list.getPrice());
 			index++;
 		}
+		System.out.println();
+		for(int i=0;i<110;i++)
+			System.out.print("*");
 		System.out.println();
 	}
 

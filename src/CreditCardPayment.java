@@ -91,7 +91,7 @@ public class CreditCardPayment extends Payment{
 		}
 	      validDate=Validator.dateCheck(dateString);
 	      if(!validDate) {
-	    	  System.out.println("This is expired card.Please enter a valid date!");
+	    	  System.out.println("Please enter a valid expiration date!");
 	    	 continue;
 	      }
 		}while(!validDate);
