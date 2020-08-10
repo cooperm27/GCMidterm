@@ -16,10 +16,16 @@ public class CashPayment extends Payment {
 
 	@Override
 	public String Payment(double amount) {
-		System.out.println("How much cash are you giving us?");
-		double cashAmount = scnr.nextDouble();
-		 change = cashAmount - amount;
-		String outPut=String.format("Thank you.  Your change is $ %.2f\n",change) ;
+		boolean enoughCash = false;
+		double cashAmount = 0;
+	do {	
+		cashAmount=Validator.getDouble(scnr,"How much cash are you giving us?");
+		enoughCash = Validator.getEnoughCash(cashAmount, amount);
+	}while (enoughCash == false);
+		change = cashAmount - amount;
+		System.out.println();
+		String outPut= "Thank You. ";
+		
 		return outPut;
 	}
 

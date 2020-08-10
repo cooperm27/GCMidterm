@@ -81,7 +81,7 @@ public class CashRegister {
 			if (question.equalsIgnoreCase("Cash")) {
 				cash = new CashPayment(finalTotal);
 				cashPay = true;
-				System.out.println(cash.Payment(finalTotal));
+				System.out.print(cash.Payment(finalTotal));
 			} else if (question.equalsIgnoreCase("Card")) {
 				CreditCardPayment ccp = new CreditCardPayment(finalTotal);
 				System.out.println(ccp.Payment(finalTotal));
@@ -120,6 +120,7 @@ public class CashRegister {
 		System.out.println("Thank You for coming to Grand Circus Restuarant!!");
 		scnr.close();
 	}
+		
 
 	
 	//Reading from the Products text file and sorting it alphabetically

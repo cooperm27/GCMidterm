@@ -137,6 +137,7 @@ public class Validator {
 			   return false;
 	   
 	}
+	
 	public static String getNewCategory (Scanner scnr, String prompt){
 		String response;
 		boolean isValid;
@@ -148,6 +149,18 @@ public class Validator {
 				System.out.println("Please try again and only choose Appetizer, Entree, Drink or Dessert.");
 			}
 			}while (!isValid);
-			return response;
+			return response;		
+	}
+
+	public static boolean getEnoughCash(double cashAmount, double amount) {
+		while (cashAmount < amount) {
+			System.out.println("Sorry that's not enough cash");
+			System.out.println("Please try again");
+			return false;
+		}
+		return true;
+	}
 }
-}
+
+	
+
