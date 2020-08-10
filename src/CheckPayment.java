@@ -35,7 +35,7 @@ class CheckPayment extends Payment{
 		checkNumber=Validator.getInt(scnr,"Enter the check number:");
         check=Validator.getCheckSize(checkNumber);
 		}while(!check);
-		String outPut=String.format("Approved\nThank you.You have been charged $ %.2f\n",amount) ;
+		String outPut=String.format("Approved\nThank you");
 	    return outPut;
 	}
 	

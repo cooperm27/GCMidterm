@@ -102,7 +102,7 @@ public class CreditCardPayment extends Payment{
 
 	    }while(!validCVV);
 	    
-	    String outPut=String.format("Approved\nThank you.Your card has been charged $ %.2f\n",amount) ;
+	    String outPut=String.format("Approved\nThank you.") ;
 	    return outPut;
 	}
 	
