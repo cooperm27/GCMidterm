@@ -1,13 +1,13 @@
 import java.util.Scanner;
 
-class CheckPayment extends Payment{
+class CheckPayment extends Payment {
 	private int checkNumber;
-	
+
 	private static Scanner scnr = new Scanner(System.in);
 
 	public CheckPayment(double amount) {
 		super(amount);
-	
+
 	}
 
 	public CheckPayment(double amount, int checkNumber) {
@@ -30,15 +30,13 @@ class CheckPayment extends Payment{
 
 	@Override
 	public String Payment(double amount) {
-		boolean check=true;
+		boolean check = true;
 		do {
-		checkNumber=Validator.getInt(scnr,"Enter the check number:");
-        check=Validator.getCheckSize(checkNumber);
-		}while(!check);
-		String outPut=String.format("Approved\nThank you");
-	    return outPut;
+			checkNumber = Validator.getPositiveInt(scnr, "Enter the check number:");
+			check = Validator.getCheckSize(checkNumber);
+		} while (!check);
+		String outPut = String.format("Approved\nThank you");
+		return outPut;
 	}
-	
-	
-	
+
 }
